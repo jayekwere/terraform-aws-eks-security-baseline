@@ -1,0 +1,15 @@
+# Replace every identifier. This file is not automatically loaded.
+region                        = "us-west-2"
+name                          = "eks-baseline-dev"
+kubernetes_version            = "1.35"
+vpc_id                        = "vpc-REPLACE"
+private_subnet_ids            = ["subnet-REPLACE-A", "subnet-REPLACE-B"]
+api_client_security_group_ids = ["sg-REPLACE"]
+bootstrap_admin_role_arn      = "arn:aws:iam::111122223333:role/REPLACE-bootstrap"
+log_key_admin_role_arns       = ["arn:aws:iam::111122223333:role/REPLACE-terraform"]
+# Discover these exact region/minor-compatible builds; do not copy mock-test builds.
+addon_versions = {
+  vpc_cni            = "REPLACE"
+  pod_identity_agent = "REPLACE"
+  kube_proxy         = "REPLACE"
+}

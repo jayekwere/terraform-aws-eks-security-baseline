@@ -1,0 +1,114 @@
+{
+  "recorded_at_utc": "2026-10-28T17:21:27.976854+00:00",
+  "kind": "real Kubernetes API dry-run admission; no EKS/CNI/IAM runtime validation",
+  "server": {
+    "major": "1",
+    "minor": "37",
+    "emulationMajor": "1",
+    "emulationMinor": "37",
+    "minCompatibilityMajor": "1",
+    "minCompatibilityMinor": "36",
+    "gitVersion": "v1.37.0",
+    "gitCommit": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+    "gitTreeState": "clean",
+    "buildDate": "2026-08-26T10:44:25Z",
+    "goVersion": "go1.26.6",
+    "compiler": "gc",
+    "platform": "linux/arm64"
+  },
+  "cases": [
+    {
+      "case": "restricted-pod",
+      "allowed": true,
+      "expected_allowed": true,
+      "reason": "restricted:v1.35",
+      "response": "server dry-run accepted"
+    },
+    {
+      "case": "privileged",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "violates PodSecurity",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": pods \"restricted-example\" is forbidden: violates PodSecurity \"restricted:v1.35\": privileged (container \"example\" must not set securityContext.privileged=true), allowPrivilegeEscalation != false (container \"example\" must set securityContext.allowPrivilegeEscalation=false)"
+    },
+    {
+      "case": "host-network",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "violates PodSecurity",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": pods \"restricted-example\" is forbidden: violates PodSecurity \"restricted:v1.35\": host namespaces (hostNetwork=true)"
+    },
+    {
+      "case": "root-user",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "violates PodSecurity",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": pods \"restricted-example\" is forbidden: violates PodSecurity \"restricted:v1.35\": runAsUser=0 (pod must not set runAsUser=0)"
+    },
+    {
+      "case": "privilege-escalation",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "violates PodSecurity",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": pods \"restricted-example\" is forbidden: violates PodSecurity \"restricted:v1.35\": allowPrivilegeEscalation != false (container \"example\" must set securityContext.allowPrivilegeEscalation=false)"
+    },
+    {
+      "case": "added-capability",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "violates PodSecurity",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": pods \"restricted-example\" is forbidden: violates PodSecurity \"restricted:v1.35\": unrestricted capabilities (container \"example\" must not include \"NET_ADMIN\" in securityContext.capabilities.add)"
+    },
+    {
+      "case": "unconfined-seccomp",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "violates PodSecurity",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": pods \"restricted-example\" is forbidden: violates PodSecurity \"restricted:v1.35\": seccompProfile (pod must not set securityContext.seccompProfile.type to \"Unconfined\")"
+    },
+    {
+      "case": "host-path",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "violates PodSecurity",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": pods \"restricted-example\" is forbidden: violates PodSecurity \"restricted:v1.35\": restricted volume types (volume \"host\" uses restricted volume type \"hostPath\")"
+    },
+    {
+      "case": "NodePort",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "exceeded quota",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": services \"blocked-service\" is forbidden: exceeded quota: workload-budget, requested: services.nodeports=1, used: services.nodeports=0, limited: services.nodeports=0"
+    },
+    {
+      "case": "LoadBalancer",
+      "allowed": false,
+      "expected_allowed": false,
+      "reason": "exceeded quota",
+      "response": "Error from server (Forbidden): error when creating \"STDIN\": services \"blocked-service\" is forbidden: exceeded quota: workload-budget, requested: services.loadbalancers=1,services.nodeports=1, used: services.loadbalancers=0,services.nodeports=0, limited: services.loadbalancers=0,services.nodeports=0"
+    },
+    {
+      "case": "psa-does-not-require-readonly-root",
+      "allowed": true,
+      "expected_allowed": true,
+      "reason": "outside PSA",
+      "response": "server dry-run accepted"
+    },
+    {
+      "case": "psa-does-not-forbid-explicit-api-token",
+      "allowed": true,
+      "expected_allowed": true,
+      "reason": "outside PSA",
+      "response": "server dry-run accepted"
+    }
+  ],
+  "terraform_destroy_exit_code": 0,
+  "source_sha256": {
+    "fixtures/restricted-pod.json": "e2e5cccd67577883789bd16ed0dabf0f104c744c497544b3868449fa3ccd94d7",
+    "modules/namespace/main.tf": "fd1bdd0d97dfc8263495c42c267e132804fd29becf48632c00d242aa9dd9a073",
+    "modules/namespace/outputs.tf": "5945195604c37ea9f8e1185773967dc10870bdade2fb577084ae00c2164248ef",
+    "modules/namespace/variables.tf": "7aee3659a9097f480c2174a7f88712daf5db631081880d0d74a015a381fd8835",
+    "modules/namespace/versions.tf": "1c293398163ac758e425e54c36226e70ec3a6a6c73d61e21efabd9509a4d9adb",
+    "scripts/test_admission.py": "5dc3e20b4ad9d650cbb73b4ff0b85bd56f4300a3dc4d6fb44686990d9fa7e2a3"
+  }
+}

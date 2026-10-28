@@ -1,0 +1,174 @@
+{
+  "recorded_at_utc": "2026-10-28T17:21:21.092240+00:00",
+  "kind": "mock-provider plans; no AWS calls or deployment",
+  "terraform_version": "{\n  \"terraform_version\": \"1.15.8\",\n  \"platform\": \"darwin_arm64\",\n  \"provider_selections\": {\n    \"registry.terraform.io/hashicorp/aws\": \"6.70.0\",\n    \"registry.terraform.io/hashicorp/cloudinit\": \"2.4.1\",\n    \"registry.terraform.io/hashicorp/null\": \"3.3.2\",\n    \"registry.terraform.io/hashicorp/time\": \"0.14.2\",\n    \"registry.terraform.io/hashicorp/tls\": \"4.4.2\"\n  },\n  \"terraform_outdated\": true\n}",
+  "suites": {
+    ".": {
+      "native": {
+        "status": "pass",
+        "passed": 12,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      },
+      "contracts": {
+        "private-api": true,
+        "all-control-plane-logs": true,
+        "explicit-access-only": true,
+        "cluster-protection": true,
+        "no-extra-api-data-cmk": true,
+        "scoped-viewer": true,
+        "one-explicit-admin": true,
+        "strict-network-policy": true,
+        "cni-workload-role": true,
+        "imdsv2-hop-one": true,
+        "encrypted-disk-no-ssh": true,
+        "bounded-node-policies": true,
+        "rotating-audit-key": true,
+        "encrypted-audit-retention": true,
+        "exact-cni-trust": true,
+        "coredns-deferred": true
+      }
+    },
+    "modules/namespace": {
+      "native": {
+        "status": "pass",
+        "passed": 4,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      },
+      "contracts": {
+        "restricted-psa": true,
+        "no-api-token": true,
+        "bidirectional-deny": true,
+        "dns-peer-and": true,
+        "bounded-workloads": true
+      }
+    },
+    "modules/cluster-services": {
+      "native": {
+        "status": "pass",
+        "passed": 2,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      },
+      "contracts": {
+        "dns-api-egress": true,
+        "dns-port-only": true,
+        "dns-before-addon": true
+      }
+    },
+    "modules/pod-identity": {
+      "native": {
+        "status": "pass",
+        "passed": 5,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      },
+      "contracts": {
+        "exact-workload-trust": true,
+        "get-object-prefix-only": true
+      }
+    }
+  },
+  "mutations": [
+    {
+      "control": "private-api",
+      "rejected": true
+    },
+    {
+      "control": "all-control-plane-logs",
+      "rejected": true
+    },
+    {
+      "control": "one-explicit-admin",
+      "rejected": true
+    },
+    {
+      "control": "strict-network-policy",
+      "rejected": true
+    },
+    {
+      "control": "imdsv2-hop-one",
+      "rejected": true
+    },
+    {
+      "control": "bounded-node-policies",
+      "rejected": true
+    },
+    {
+      "control": "restricted-psa",
+      "rejected": true
+    },
+    {
+      "control": "no-api-token",
+      "rejected": true
+    },
+    {
+      "control": "bidirectional-deny",
+      "rejected": true
+    },
+    {
+      "control": "dns-peer-and",
+      "rejected": true
+    },
+    {
+      "control": "get-object-prefix-only",
+      "rejected": true
+    },
+    {
+      "control": "exact-workload-trust",
+      "rejected": true
+    },
+    {
+      "control": "dns-before-addon",
+      "rejected": true
+    }
+  ],
+  "source_sha256": {
+    ".github/dependabot.yml": "739c368db2743499ffa48a32f0bc01271dc9def786bf93cd51d6df8116102444",
+    ".github/workflows/verify.yml": "3b4079c16145811647a64ecb8167fd99a6e25f089037599d72009c42b9b63d38",
+    ".terraform.lock.hcl": "4b47a6e5875fceb345f55df693b837689b3b0b63253239a0cf02b9a87faa17c9",
+    ".tflint.hcl": "47c7d922abb5f4d1704e291c92964491dc74dae658b9278245a5341aad954b8a",
+    "examples/cluster/.terraform.lock.hcl": "4b47a6e5875fceb345f55df693b837689b3b0b63253239a0cf02b9a87faa17c9",
+    "examples/cluster/main.tf": "4b78b9223b2deeb148548f407cbbc637871105ca244ad69309fbba0ff3a9b135",
+    "examples/cluster/variables.tf": "f533048786dcc6fcf9a372d42aa2f47cf9d1c604db9f18ead338379c8904eb61",
+    "examples/policies/.terraform.lock.hcl": "b042af867d373bf0140cbcba64d7e1327fd34112c0f3047b192395f6240f81b8",
+    "examples/policies/main.tf": "0710086e1a4dce5044028280542b30e14a29c7372d117c28050a3d54798a38bb",
+    "examples/policies/variables.tf": "798b613abcd240ce64d6fd0ef9c91ac7538240b786532a460388c1da9b3f4d2c",
+    "fixtures/restricted-pod.json": "e2e5cccd67577883789bd16ed0dabf0f104c744c497544b3868449fa3ccd94d7",
+    "logging.tf": "077a7d85472cc4df71cc70cc4a60b9c58b330c37f1c33dbee3805faf8e5aa651",
+    "main.tf": "f98f8914400c0dc7f5e199679ae61f7c3b2cbecc9a3a592916ed6377e4f9da6a",
+    "modules/cluster-services/.terraform.lock.hcl": "b042af867d373bf0140cbcba64d7e1327fd34112c0f3047b192395f6240f81b8",
+    "modules/cluster-services/main.tf": "08b8de8cd4350ed8079f25e9026007390b8fa2b281f37e0c65055d75eb432849",
+    "modules/cluster-services/tests/dns.tftest.hcl": "23708481f81499d8072e0b81295714e6da09a5e52ba5599d69aaba4a2fc5af26",
+    "modules/cluster-services/variables.tf": "4dbccca51910529fe6de1d5179ff543bd1f098ba2f747b809ad9b2cb5d1c77ef",
+    "modules/cluster-services/versions.tf": "5d637f594979be5bef1015b022488854c37285da975728665ee481f352c27af3",
+    "modules/namespace/.terraform.lock.hcl": "6e5cb7b05238b4dfab747b90af436c06053c295f5583e05ec12493f2d0d668ec",
+    "modules/namespace/main.tf": "fd1bdd0d97dfc8263495c42c267e132804fd29becf48632c00d242aa9dd9a073",
+    "modules/namespace/outputs.tf": "5945195604c37ea9f8e1185773967dc10870bdade2fb577084ae00c2164248ef",
+    "modules/namespace/tests/policies.tftest.hcl": "78dec6adca4b236b8cb43ad29c6e2bf1f1848208e249337b9543f047e6315828",
+    "modules/namespace/variables.tf": "7aee3659a9097f480c2174a7f88712daf5db631081880d0d74a015a381fd8835",
+    "modules/namespace/versions.tf": "1c293398163ac758e425e54c36226e70ec3a6a6c73d61e21efabd9509a4d9adb",
+    "modules/pod-identity/.terraform.lock.hcl": "4819a744c10855a4942ab387d6a1791263630686ec556a2ac1efc2acbf360e74",
+    "modules/pod-identity/main.tf": "ff954858c951c0f927b084e791071bf8114c173cafa857072ecbd3c035d8b9c9",
+    "modules/pod-identity/outputs.tf": "14db8b09696ef457b2e47bf09b0d554eb6ce3227d56f1e04836030780a5faca1",
+    "modules/pod-identity/tests/identity.tftest.hcl": "1ee5654e54388ecae158d22b2ecceb3b4ab68e7f706a00125f97deb16da792e1",
+    "modules/pod-identity/variables.tf": "75928d3fa0c25837498d4435c12552b389266c6c3a134672b827fd110f880c9f",
+    "modules/pod-identity/versions.tf": "9ed98ffca50152486a5ef2d3d9fd16b9cfb4aca7b7ce36bb86b811a3eb310c06",
+    "network.tf": "3deba922552a852d145384edd40249c0ca42c1b48573155c214332361d3fd838",
+    "nodes.tf": "6437618bac8fd2f56cb8a3e55dea468835b684168666d6b4891f1d53d8cbeb91",
+    "outputs.tf": "b6db4f5f93a15cfc8e462447cd60b1d067873ecca80459fe791166d2dd7d9c97",
+    "requirements-ci.txt": "70f2bee43ec61bcc7bfeb0ea5c89584b9255e16d8b18d6ff252707f95b539fea",
+    "scripts/install_tools.sh": "826dc9cda9c5097dba533f1c590db89948b7363dceb335c94bc0cfb32b05c9a8",
+    "scripts/test_admission.py": "5dc3e20b4ad9d650cbb73b4ff0b85bd56f4300a3dc4d6fb44686990d9fa7e2a3",
+    "scripts/test_regressions.py": "aca0f632198d2f8a8ff680bd22de9dff81e354d779079ba85625e69f644c7eb4",
+    "scripts/verify_workflow.py": "8d483a17b9d31fa7d791ed653980135d059c601763088beb62df2f0e4c2ef87b",
+    "tests/baseline.tftest.hcl": "a6f00ece4f7f92b6bd75797e99f49d6d1e1e8eeed81ae14eb7c2ba0f68b6edaf",
+    "variables.tf": "335d3161d86c4986e899e439e4a06e220e720368467e13093108e527cf0ecb67",
+    "versions.tf": "9ed98ffca50152486a5ef2d3d9fd16b9cfb4aca7b7ce36bb86b811a3eb310c06"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "recorded_at_utc": "2026-10-28T17:22:24.387692+00:00",
+  "terraform": "1.15.8",
+  "schema_validation_roots": [
+    ".",
+    "modules/namespace",
+    "modules/cluster-services",
+    "modules/pod-identity",
+    "examples/cluster",
+    "examples/policies"
+  ],
+  "schema_validation": "passed",
+  "terraform_fmt": "passed",
+  "tflint": {
+    "version": "0.65.0",
+    "ruleset": "Terraform recommended",
+    "result": "passed all six roots"
+  },
+  "actionlint": {
+    "version": "1.7.12",
+    "result": "passed"
+  },
+  "workflow_guard": "passed",
+  "checkov": {
+    "passed": 40,
+    "failed": 0,
+    "skipped": 0,
+    "parsing_errors": 0,
+    "resource_count": 18,
+    "checkov_version": "3.3.30"
+  },
+  "checkov_scope": "authored Terraform only; external modules disabled; no skip checks",
+  "checkov_raw_sha256": "ea464e122a17b130868d6fa4e53a39a90fcb5b1f79ec56417dcff7ca4aceec7e"
+}

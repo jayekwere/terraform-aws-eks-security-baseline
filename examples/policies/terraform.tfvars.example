@@ -1,0 +1,6 @@
+region                   = "us-west-2"
+cluster_name             = "eks-baseline-dev"
+bootstrap_admin_role_arn = "arn:aws:iam::111122223333:role/REPLACE-bootstrap"
+vpc_cidr                 = "10.20.0.0/16"
+coredns_version          = "REPLACE"
+# reader_bucket_arn = "arn:aws:s3:::your-existing-development-bucket"
