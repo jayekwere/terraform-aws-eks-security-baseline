@@ -7,6 +7,8 @@ An opinionated Terraform baseline for **a new private EKS cluster and restricted
 
 **Development release. No AWS infrastructure has been deployed or runtime-tested for this project.** Local verification covers real Terraform schemas, mocked AWS/Kubernetes plans, deliberate source regressions, and actual Kubernetes admission requests on a disposable kind cluster. This is a reviewable starting point, not a production certification or a complete platform. See [verification and remaining blockers](docs/verification.md).
 
+**Hosted verification, October 28, 2026:** [all four jobs passed](https://github.com/jayekwere/terraform-aws-eks-security-baseline/actions/runs/40735904173): 23 native runs, 26 composed-resource contracts and 13 rejected source mutations on **each** Terraform version; 12 real Kubernetes admission requests; Checkov **40 passed / 0 failed / 0 skipped** on authored Terraform. [Downloaded, source-checked evidence](docs/evidence/hosted-verification.json).
+
 ## What this adds
 
 - Private-only Kubernetes API; explicit source security groups; prerequisites reject public-IP subnets, direct internet-gateway routes, wrong-VPC subnets, single-AZ placement and disabled VPC DNS.

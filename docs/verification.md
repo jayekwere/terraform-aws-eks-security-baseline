@@ -2,6 +2,10 @@
 
 Evidence is dated and tied to source hashes or a hosted commit. Source changes after a record require a new run. The [workflow](../.github/workflows/verify.yml) retains mock-plan JSON (repeated provider schemas omitted), run summaries and source commit IDs for 14 days. Public evidence contains synthetic identifiers only.
 
+## Hosted result
+
+[Run 40735904173](https://github.com/jayekwere/terraform-aws-eks-security-baseline/actions/runs/40735904173) passed all four jobs for `8effaa924fc248fb5ec8649b7d0271584d8c522d`. Both Terraform 1.15.8 and 1.17.0 passed 23 native runs, 26 composed-resource contracts and 13 rejected mutations. Admission passed all 12 requests (9 rejected, 3 accepted); authored-Terraform Checkov passed 40 checks with zero failures, skips or parsing errors. All artifacts were downloaded; both Terraform artifact commit IDs and implementation hashes matched the source. The [permanent record](evidence/hosted-verification.json) preserves job links, totals and evidence hashes. The release assets also preserve verification for the final release commit.
+
 ## Local result
 
 - Terraform 1.15.8: **23 native runs** (4 positive plans, 19 required input/prerequisite rejections), with **26 composed-resource contracts**.
