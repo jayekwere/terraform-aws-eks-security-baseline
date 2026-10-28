@@ -1,6 +1,6 @@
 # Verification and limits
 
-Evidence is dated and tied to source hashes or a hosted commit. Source changes after a record require a new run. The [workflow](../.github/workflows/verify.yml) retains raw mock-plan JSON, run summaries and source commit IDs for 14 days. Public evidence contains synthetic identifiers only.
+Evidence is dated and tied to source hashes or a hosted commit. Source changes after a record require a new run. The [workflow](../.github/workflows/verify.yml) retains mock-plan JSON (repeated provider schemas omitted), run summaries and source commit IDs for 14 days. Public evidence contains synthetic identifiers only.
 
 ## Local result
 
@@ -61,3 +61,7 @@ No DNS packets, VPC CNI eBPF behavior, Pod Identity sessions, EC2 metadata reque
 All third-party Actions are full-SHA pinned. Tool archives and the Kubernetes test image are pinned to verified checksums/digests. PRs run with `contents: read`, no AWS credentials, no persisted checkout token, no `pull_request_target`, and no release-writing job. Dependency packages have pinned direct versions, but their full transitive resolution and hosted runner images are not hermetically reproduced. Dependency updates require review and checks.
 
 A release is published after successful hosted checks with source-bound evidence and SHA-256 checksums. Checksums detect changes relative to the release record; they are not independent cryptographic publisher identity. No artifact signature, verified-build attestation, immutable-release setting or external security audit is claimed unless separately recorded.
+
+## Initial hosted portability failure
+
+The first hosted run at implementation commit `e746bd7ed7f02494541f0cd916148246e46656f0` passed lint/scanning but failed Terraform/admission before tests because the lockfiles lacked Linux installed-package hashes. The repair adds HashiCorp-verified `linux_amd64` hashes while preserving provider versions. The initial local mock/admission results remain valid for their recorded source; the latest hosted/local records identify the corrected revision. The failed initial run is retained at [40735246559](https://github.com/jayekwere/terraform-aws-eks-security-baseline/actions/runs/40735246559).

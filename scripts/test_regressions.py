@@ -96,7 +96,13 @@ def run_suite(root, suite, positive):
     if not plan:
         raise RuntimeError(p.stdout[-10000:] + p.stderr[-3000:])
     checks = contract(plan, suite, root)
-    return p.returncode, summary, checks, p.stdout
+    # Provider schemas repeat in every verbose plan and add hundreds of MB;
+    # preserve all resource changes/diagnostics while omitting duplicate schemas.
+    for event in events:
+        if event.get('type') == 'test_plan':
+            event['test_plan'].pop('provider_schemas', None)
+    evidence = '\n'.join(json.dumps(event) for event in events) + '\n'
+    return p.returncode, summary, checks, evidence
 
 
 MUTATIONS = [

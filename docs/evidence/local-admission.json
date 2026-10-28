@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-10-28T17:21:27.976854+00:00",
+  "recorded_at_utc": "2026-10-28T17:26:10.254065+00:00",
   "kind": "real Kubernetes API dry-run admission; no EKS/CNI/IAM runtime validation",
   "server": {
     "major": "1",
@@ -105,6 +105,7 @@
   "terraform_destroy_exit_code": 0,
   "source_sha256": {
     "fixtures/restricted-pod.json": "e2e5cccd67577883789bd16ed0dabf0f104c744c497544b3868449fa3ccd94d7",
+    "modules/namespace/.terraform.lock.hcl": "968e3092e131c2d5e3252a8c7bc567c028200a97f0a01f96a3ca33f90bb84a06",
     "modules/namespace/main.tf": "fd1bdd0d97dfc8263495c42c267e132804fd29becf48632c00d242aa9dd9a073",
     "modules/namespace/outputs.tf": "5945195604c37ea9f8e1185773967dc10870bdade2fb577084ae00c2164248ef",
     "modules/namespace/variables.tf": "7aee3659a9097f480c2174a7f88712daf5db631081880d0d74a015a381fd8835",
