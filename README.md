@@ -136,3 +136,7 @@ Read the [threat model](docs/threat-model.md), [technical decisions and authorit
 [`secure-aws-platform`](https://github.com/jayekwere/secure-aws-platform) covers a deployed S3/KMS/access/audit/state foundation. [`hardened-container-supply-chain`](https://github.com/jayekwere/hardened-container-supply-chain) covers image build, scanning, signing and admission trust. This repository adds the **EKS provisioning and namespace boundary**; it does not duplicate those storage or artifact-verification implementations. [Review record](docs/decisions.md#distinct-scope).
 
 Contributions: [CONTRIBUTING.md](CONTRIBUTING.md). Security reports: [SECURITY.md](SECURITY.md). License: [MIT](LICENSE).
+
+---
+
+**AI assistance:** AI tools helped with code or documentation.
